@@ -1,3 +1,7 @@
+if(process.env.NODE_ENV !== 'production'){
+  require('dotenv').config();
+}
+
 const express = require('express');
 const morgan = require('morgan'); // Visualizar peticiones por consola
 const multer = require('multer'); // Subir archivos al servidor
@@ -5,9 +9,10 @@ const path = require('path'); // Directorios dentro del proyecto
 
 // Iniatialization
 const app = express();
+require('./database');
 
 // Settings
-app.set('port', 3000);
+app.set('port', process.env.PORT || 3000); 
 
 // Middlewares
 app.use(morgan('dev'));
@@ -20,6 +25,12 @@ storage = multer.diskStorage({
 app.use(multer({storage}).single('image'));
 app.use(express.urlencoded({extended: false})); // Comprender los datos enviados de un formulario.
 app.use(express.json()); // Trabajar con archivos JSON
+
+// Routes
+app.use('/api/books', require('./routes/books.js'));
+
+// Static files
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Start the server
 app.listen(app.get('port'), ()=>{
