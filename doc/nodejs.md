@@ -19,3 +19,11 @@
 ~~~ 
  $ npm i express mongoose morgan multer dotenv cross-env cors
 ~~~
+
+**Instalamos modulo fs-extra**
+
+Permite trabajar con archivos del sistema aplicando promesas.
+
+~~~ 
+ $ npm i fs-extra 
+~~~

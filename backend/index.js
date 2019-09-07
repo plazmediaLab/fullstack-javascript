@@ -1,0 +1,14 @@
+const express = require('express');
+
+// Iniatialization
+const app = express();
+
+// Settings
+app.set('port', 3000);
+
+// Start the server
+app.listen(app.get('port'), ()=>{
+  console.log('Server on port', app.get('port'));
+})
+
+// node backend/index.js => Iniciamos por consola el servidor
