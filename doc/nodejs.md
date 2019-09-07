@@ -27,3 +27,11 @@ Permite trabajar con archivos del sistema aplicando promesas.
 ~~~ 
  $ npm i fs-extra 
 ~~~
+
+**Instalamos modulo Nodemon como dependencia de desarrollo**
+
+Nodemon es una herramienta que ayuda a desarrollar aplicaciones basadas en node.js al reiniciar automáticamente la aplicación de nodo cuando se detectan cambios en el directorio.
+
+~~~ 
+ $ npm i nodemon -D
+~~~
